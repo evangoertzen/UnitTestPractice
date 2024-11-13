@@ -25,5 +25,17 @@ int Password::count_leading_characters(string phrase){
   letter and at least one lower-case letter
 */
 bool Password::has_mixed_case(string pass){
-  return false;
+  bool containsUpper = false;
+  bool containsLower = false;
+
+  for(auto ch : pass){
+    if (ch >= 'A' && ch <= 'Z'){
+      containsUpper = true;
+    }
+    if(ch >= 'a' && ch <= 'z'){
+      containsLower = true;
+    }
+  }
+
+  return containsLower && containsUpper;
 }
